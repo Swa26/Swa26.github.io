@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="Search.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <header>
+        <div id="logo">
+          <a class="logo" href="TMDB.html">
+            <img
+              src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg"
+              width="154"
+              height="20"
+            />
+          </a>
+        </div>
+        <div id="navigations">
+          <nav>
+            <ul>
+              <li>Movies</li>
+              <li>TV Shows</li>
+              <li>People</li>
+              <li>More</li>
+            </ul>
+          </nav>
+        </div>
+        <div id="login">
+          <nav>
+            <ul>
+              <li><span class="material-symbols-outlined">add</span></li>
+              <li><button>EN</button></li>
+              <li>Login</li>
+              <li>Join TMBD</li>
+              <li><span class="material-symbols-outlined">search</span></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <!--Nav Ends Here-->
+      <form>
+        <i class="fa fa-search" id="icon"></i>
+        <input type="text" id="inputsearch" onkeyup="trendingList()"/>
+      </form>
+      <div class="container" id="main_container">
+        <div id="trendingList"></div>
+
+        <div id="sidebar">
+          <header id="sidebarHeader">
+            <h3>Search Results</h3>
+          </header>
+          <ul id="sidebar-list">
+            <button onclick="movie()">
+              <li>Movies<span class="links" id="numbers"></span></li>
+            </button>
+            <button onclick="tv()">
+              <li>Tv Shows<span class="links" id="tv"></span></li>
+            </button>
+            <button onclick="person()"><li>People<span class="links" id="people"></span></li></button>
+            <button onclick="company()"><li>Companies<span class="links" id="companies"></span></li></button>
+            <button onclick="keyword()"><li>Keywords<span class="links" id="keywords"></span></li></button>
+            <button onclick="collection()"><li>Collections<span class="links" id="collections"></span></li></button>
+            <button><li>Networks<span class="links" id="network"></span></li></button>
+          </ul>
+        </div>
+        <div id="cards-container2"></div>
+      </div>
+    </div>
+
+    <script>
+      window.onload = function () {
+        movie();
+      };
+      var formValue = localStorage.getItem("myValue");
+      var searchValue = localStorage.getItem("myValue1");
+      let placeholder=document.getElementById("inputsearch").value=searchValue;
+      console.log(formValue);
+      console.log(searchValue);
+      var form = formValue;
+      var search = searchValue;
+      var cardscontainer2 = document.querySelector("#cards-container2");
+
+      function movie() {
+        if (searchValue) {
+          cardscontainer2.innerHTML = " ";
+          getMovies4(
+            "https://api.themoviedb.org/3/search/movie?query=" +
+              searchValue +
+              "&include_adult=false&language=en-US&page=1",
+            apiAuth
+          );
+        }
+      }
+
+      function tv() {
+        if (searchValue) {
+          cardscontainer2.innerHTML = " ";
+          getMovies4(
+            "https://api.themoviedb.org/3/search/tv?query=" +
+              searchValue +
+              "&include_adult=false&language=en-US&page=1",
+            apiAuth
+          );
+        }
+      }
+      function person() {
+        if (searchValue) {
+          cardscontainer2.innerHTML = " ";
+          getMovies5(
+            "https://api.themoviedb.org/3/search/person?query=" +
+              searchValue +
+              "&include_adult=false&language=en-US&page=1",
+            apiAuth
+          );
+        }
+      }
+
+      function company() {
+        if (searchValue) {
+          cardscontainer2.innerHTML = " ";
+          getMovies6(
+            "https://api.themoviedb.org/3/search/company?query=" +
+              searchValue +
+              "&include_adult=false&language=en-US&page=1",
+            apiAuth
+          );
+        }
+      }
+      function keyword() {
+        if (searchValue) {
+          cardscontainer2.innerHTML = " ";
+          getMovies7(
+            "https://api.themoviedb.org/3/search/keyword?query=" +
+              searchValue +
+              "&include_adult=false&language=en-US&page=1",
+            apiAuth
+          );
+        }
+      }
+      function collection() {
+        if (searchValue) {
+          cardscontainer2.innerHTML = " ";
+          getMovies8(
+            "https://api.themoviedb.org/3/search/collection?query=" +
+              searchValue +
+              "&include_adult=false&language=en-US&page=1",
+            apiAuth
+          );
+        }
+      }
+
+      function trendingList() {
+        if (searchValue) {
+          var search = document.getElementById("inputsearch");
+          var list = document.getElementById("trendingList");
+          getMovies9(
+            "https://api.themoviedb.org/3/search/multi?query=" +
+              search.value +
+              "&include_adult=false&language=en-US&page=1",
+            options9
+          );
+        }
+
+        search.addEventListener("keydown", function (event) {
+          const key = event.key;
+          if (key === "Backspace" || key === "Delete") {
+            list.innerHTML = " ";
+          }
+        });
+      }
+
+      const apiAuth = {
+        method: "GET",
+        headers: {
+          accept: "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YTYwZjI2MjQ5M2ZiOTZlNjE1NWE5NjQzYWI3ZmRjNiIsInN1YiI6IjY0OWU5YjJlNWFiYTMyMDBmZmRiNmYxMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qR1YQw21ApKCJkiYOU18a-LeDYPUuvfn1yBKqN1Xwzg",
+        },
+      };
+
+      function getMovies4(url, options) {
+        fetch(url, options)
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data.results);
+            renderCharacters4(data.results);
+            console.log("---------------");
+            showNumbers(data.results);
+          });
+      }
+
+      function renderCharacters4(characters) {
+        //console.log(characters.length)
+        characters.forEach((character) => {
+          const {
+            title,
+            name,
+            poster_path,
+            release_date,
+            first_air_date,
+            vote_average,
+            backdrop_path,
+            overview,
+            profile_path,
+          } = character;
+          if (poster_path) {
+            var popular_image1 =
+              "https://image.tmdb.org/t/p/w500" + poster_path;
+          } else {
+            var popular_image1 =
+              "https://image.tmdb.org/t/p/w500" + profile_path;
+          }
+          const popular_div = document.createElement("div");
+          const popular_image = document.createElement("img");
+          const popular_div1 = document.createElement("div");
+          const popular_nameMovie = document.createElement("h6");
+          const popular_species = document.createElement("p");
+          const popular_overview = document.createElement("p");
+
+          popular_div.id = "card3";
+          popular_div1.id = "card3_info";
+          popular_image.classList = "card-img3";
+          popular_overview.id = "card_overview";
+          popular_image.src = popular_image1;
+          const totalvotes = (vote_average * 10).toFixed(0);
+          if (title) {
+            popular_nameMovie.innerText = title;
+          } else {
+            popular_nameMovie.innerText = name;
+          }
+          if (first_air_date) {
+            const date = new Date(release_date);
+            let newDate = date.toDateString();
+            let arr = newDate.split(" ");
+            let newDate2 = arr[1] + " " + arr[2] + " " + arr[3];
+            popular_species.innerText = `${newDate2}`;
+          } else {
+            const date = new Date(release_date);
+            let newDate = date.toDateString();
+            let arr = newDate.split(" ");
+            let newDate2 = arr[1] + " " + arr[2] + " " + arr[3];
+            popular_species.innerText = `${newDate2}`;
+          }
+
+          popular_overview.innerText = overview;
+
+          popular_div.appendChild(popular_image);
+          popular_div.appendChild(popular_div1);
+          popular_div1.appendChild(popular_nameMovie);
+          popular_div1.appendChild(popular_species);
+          popular_div1.appendChild(popular_overview);
+
+          cardscontainer2.appendChild(popular_div);
+        });
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      }
+      const options5 = {
+        method: "GET",
+        headers: {
+          accept: "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YTYwZjI2MjQ5M2ZiOTZlNjE1NWE5NjQzYWI3ZmRjNiIsInN1YiI6IjY0OWU5YjJlNWFiYTMyMDBmZmRiNmYxMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qR1YQw21ApKCJkiYOU18a-LeDYPUuvfn1yBKqN1Xwzg",
+        },
+      };
+
+      function getMovies5(url, options) {
+        fetch(url, options)
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data.results);
+            renderCharacters5(data.results);
+            showNumbers(data.results);
+          });
+      }
+      function renderCharacters5(characters) {
+        //console.log(characters.length)
+        characters.forEach((character) => {
+          const {
+            title,
+            name,
+            poster_path,
+            release_date,
+            first_air_date,
+            vote_average,
+            backdrop_path,
+            overview,
+            profile_path,
+            known_for_department,
+          } = character;
+          if (poster_path) {
+            var popular_image1 =
+              "https://image.tmdb.org/t/p/w500" + poster_path;
+          } else {
+            var popular_image1 =
+              "https://image.tmdb.org/t/p/w500" + profile_path;
+          }
+          const popular_div = document.createElement("div");
+          const popular_image = document.createElement("img");
+          const popular_div1 = document.createElement("div");
+          const popular_nameMovie = document.createElement("h6");
+
+          const popular_overview = document.createElement("p");
+
+          popular_div.id = "card3";
+          popular_div1.id = "card3_info";
+          popular_image.classList = "card-img3";
+          popular_overview.id = "card_overview";
+          popular_image.src = popular_image1;
+          const totalvotes = (vote_average * 10).toFixed(0);
+          if (title) {
+            popular_nameMovie.innerText = title;
+          } else {
+            popular_nameMovie.innerText = name;
+          }
+
+          popular_overview.innerText = known_for_department;
+
+          popular_div.appendChild(popular_image);
+          popular_div.appendChild(popular_div1);
+          popular_div1.appendChild(popular_nameMovie);
+
+          popular_div1.appendChild(popular_overview);
+
+          cardscontainer2.appendChild(popular_div);
+        });
+      }
+      //////////////////////////////////////////////////////////////////////////////////////////////////////
+      const options6 = {
+        method: "GET",
+        headers: {
+          accept: "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YTYwZjI2MjQ5M2ZiOTZlNjE1NWE5NjQzYWI3ZmRjNiIsInN1YiI6IjY0OWU5YjJlNWFiYTMyMDBmZmRiNmYxMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qR1YQw21ApKCJkiYOU18a-LeDYPUuvfn1yBKqN1Xwzg",
+        },
+      };
+
+      function getMovies6(url, options) {
+        fetch(url, options)
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data.results);
+            renderCharacters6(data.results);
+            showNumbers(data.results);
+          });
+      }
+      function renderCharacters6(characters) {
+        //console.log(characters.length)
+        characters.forEach((character) => {
+          const {
+            title,
+            name,
+            logo_path,
+            origin_country,
+            known_for_department,
+            poster_path,
+          } = character;
+          if (poster_path) {
+            var popular_image1 =
+              "https://image.tmdb.org/t/p/w500" + poster_path;
+          } else {
+            var popular_image1 = "https://image.tmdb.org/t/p/w500" + logo_path;
+          }
+          const popular_div = document.createElement("div");
+          const popular_image = document.createElement("img");
+          const popular_div1 = document.createElement("div");
+          const popular_nameMovie = document.createElement("h6");
+
+          const popular_overview = document.createElement("p");
+
+          popular_div.id = "card3";
+          popular_div1.id = "card3_info";
+          popular_image.classList = "card-img3";
+          popular_overview.id = "card_overview";
+          popular_image.src = popular_image1;
+
+          if (title) {
+            popular_nameMovie.innerText = title;
+          } else {
+            popular_nameMovie.innerText = name;
+          }
+
+          popular_overview.innerText = origin_country;
+
+          popular_div.appendChild(popular_image);
+          popular_div.appendChild(popular_div1);
+          popular_div1.appendChild(popular_nameMovie);
+
+          popular_div1.appendChild(popular_overview);
+
+          cardscontainer2.appendChild(popular_div);
+        });
+      }
+
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      const options7 = {
+        method: "GET",
+        headers: {
+          accept: "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YTYwZjI2MjQ5M2ZiOTZlNjE1NWE5NjQzYWI3ZmRjNiIsInN1YiI6IjY0OWU5YjJlNWFiYTMyMDBmZmRiNmYxMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qR1YQw21ApKCJkiYOU18a-LeDYPUuvfn1yBKqN1Xwzg",
+        },
+      };
+
+      function getMovies7(url, options) {
+        fetch(url, options)
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data.results);
+            renderCharacters7(data.results);
+            showNumbers(data.results);
+          });
+      }
+      function renderCharacters7(characters) {
+        //console.log(characters.length)
+        characters.forEach((character) => {
+          const { title, name } = character;
+
+          const popular_div = document.createElement("div");
+
+          const popular_nameMovie = document.createElement("h6");
+          popular_div.id = "card3";
+          popular_div.style.border = "none";
+          popular_div.style.borderRadius = "0rem";
+          popular_div.style.height = "1rem";
+          popular_div.style.margin = "1rem";
+
+          if (title) {
+            popular_nameMovie.innerText = title;
+          } else {
+            popular_nameMovie.innerText = name;
+          }
+
+          popular_div.appendChild(popular_nameMovie);
+          cardscontainer2.appendChild(popular_div);
+        });
+      }
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      const options8 = {
+        method: "GET",
+        headers: {
+          accept: "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YTYwZjI2MjQ5M2ZiOTZlNjE1NWE5NjQzYWI3ZmRjNiIsInN1YiI6IjY0OWU5YjJlNWFiYTMyMDBmZmRiNmYxMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qR1YQw21ApKCJkiYOU18a-LeDYPUuvfn1yBKqN1Xwzg",
+        },
+      };
+
+      function getMovies8(url, options) {
+        fetch(url, options)
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data.results);
+            renderCharacters8(data.results);
+            showNumbers(data.results);
+          });
+      }
+      function renderCharacters8(characters) {
+        //console.log(characters.length)
+        characters.forEach((character) => {
+          const {
+            title,
+            name,
+            logo_path,
+            overview,
+            origin_country,
+            known_for_department,
+            poster_path,
+          } = character;
+          if (poster_path) {
+            var popular_image1 =
+              "https://image.tmdb.org/t/p/w500" + poster_path;
+          } else {
+            var popular_image1 = "https://image.tmdb.org/t/p/w500" + logo_path;
+          }
+          const popular_div = document.createElement("div");
+          const popular_image = document.createElement("img");
+          const popular_div1 = document.createElement("div");
+          const popular_nameMovie = document.createElement("h6");
+
+          const popular_overview = document.createElement("p");
+
+          popular_div.id = "card3";
+          popular_div1.id = "card3_info";
+          popular_image.classList = "card-img3";
+          popular_overview.id = "card_overview";
+          popular_image.src = popular_image1;
+
+          if (title) {
+            popular_nameMovie.innerText = title;
+          } else {
+            popular_nameMovie.innerText = name;
+          }
+
+          popular_overview.innerText = overview;
+
+          popular_div.appendChild(popular_image);
+          popular_div.appendChild(popular_div1);
+          popular_div1.appendChild(popular_nameMovie);
+          // popular_div1.appendChild(popular_species);
+          popular_div1.appendChild(popular_overview);
+
+          cardscontainer2.appendChild(popular_div);
+        });
+      }
+      /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      const options9 = {
+        method: "GET",
+        headers: {
+          accept: "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YTYwZjI2MjQ5M2ZiOTZlNjE1NWE5NjQzYWI3ZmRjNiIsInN1YiI6IjY0OWU5YjJlNWFiYTMyMDBmZmRiNmYxMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qR1YQw21ApKCJkiYOU18a-LeDYPUuvfn1yBKqN1Xwzg",
+        },
+      };
+
+      function getMovies9(url, options) {
+        fetch(url, options)
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data.results);
+            renderCharacters9(data.results);
+            showNumbers(data.results);
+          });
+      }
+      var trendingList1 = document.querySelector("#trendingList");
+      function renderCharacters9(characters) {
+        //console.log(characters.length)
+        characters.forEach((character) => {
+          const { title, name } = character;
+
+          const popular_div = document.createElement("ul");
+          const popular_nameMovie = document.createElement("li");
+
+          popular_div.id = "ulist";
+
+          if (title) {
+            popular_nameMovie.innerText = title;
+          } else {
+            popular_nameMovie.innerText = name;
+          }
+
+          popular_div.appendChild(popular_nameMovie);
+          trendingList1.appendChild(popular_div);
+        });
+      }
+      ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      let countMovies = 0;
+      let countTv = 0;
+      function showNumbers(results) {
+        console.log("ShowNumbers");
+        console.log("results");
+        console.log(results);
+        results.forEach((res) => {
+          const { media_type } = res;
+          if (media_type == "movie") {
+            console.log("movie");
+            countMovies++;
+          } else if (media_type == "tv") {
+            console.log("tv");
+            countTv++;
+          }
+          const numbers = document.getElementById("numbers");
+          numbers.innerText = countMovies;
+          const tv = document.getElementById("tv");
+          tv.innerText = countTv;
+        });
+      }
+    </script>
+  </body>
+</html>

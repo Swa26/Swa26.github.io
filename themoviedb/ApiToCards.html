@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #cards-container{
+            display: flex;
+            overflow-x: scroll;
+            width: 80vw;
+            margin-left: auto;
+            margin-right: auto;
+            
+        }
+        .card-img{
+            height: 12rem;
+            width: 10rem;
+        }
+        .card{
+            margin: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="cards-container">
+    </div>
+
+    <script>
+        const options = {
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YTYwZjI2MjQ5M2ZiOTZlNjE1NWE5NjQzYWI3ZmRjNiIsInN1YiI6IjY0OWU5YjJlNWFiYTMyMDBmZmRiNmYxMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qR1YQw21ApKCJkiYOU18a-LeDYPUuvfn1yBKqN1Xwzg'
+            }
+        };
+        getMovies('https://api.themoviedb.org/3/trending/movie/week?language=en-US', options);
+        function getMovies(url, options) {
+            fetch(url, options)
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    renderCharacters(data.results);
+                })
+        }
+        const cardsContainer = document.querySelector('#cards-container');
+        function renderCharacters(characters) {
+            characters.forEach(character => {
+                const { title, poster_path, release_date } = character;
+                var image1 = "https://image.tmdb.org/t/p/w500" + poster_path;
+                const div = document.createElement('div');
+                const image = document.createElement('img');
+                const name = document.createElement('h3');
+                const species = document.createElement('h3');
+                const like = document.createElement('button');
+                div.classList = 'card'
+                image.classList = 'card-img'
+                like.classList = 'empty'
+                image.src = image1;
+                name.innerText = `Name: ${title}`
+                species.innerText = `Species: ${release_date}`
+                like.textContent = 'like'
+                div.appendChild(image)
+                div.appendChild(name)
+                div.appendChild(species)
+                div.appendChild(like)
+                cardsContainer.appendChild(div)
+            });
+        };
+    </script>
+</body>
+
+</html>

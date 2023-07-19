@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="TMDB.css" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <style>
+    #cards-container {
+      display: flex;
+      overflow-x: scroll;
+      width: 80vw;
+      margin-right: auto;
+      background-image: url(https://www.themoviedb.org/assets/2/v4/misc/trending-bg-39afc2a5f77e31d469b25c187814c0a2efef225494c038098d62317d923f8415.svg);
+      background-position: 50% 160px;
+      background-size: var(--maxPrimaryPageWidth);
+      background-repeat: no-repeat;
+    }
+
+    .card-img1 {
+      height: 13rem;
+      width: 10rem;
+      border-radius: 1rem;
+    }
+
+    #card1 {
+      margin: 1rem;
+      position: relative;
+    }
+
+    h6 {
+      margin-top: 2rem;
+    }
+
+    p {
+      font-size: large;
+      opacity: 0.8;
+    }
+
+    h3 {
+      margin-right: 0.7rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- nav-->
+
+  <div class="container-fluid">
+    <header>
+      <div id="logo">
+        <a class="logo" href="TMDB.html">
+          <img
+            src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg"
+            width="154" height="20" />
+        </a>
+      </div>
+
+      <div id="navigations">
+        <nav>
+          <ul>
+            <li>Movies</li>
+            <li>TV Shows</li>
+            <li>People</li>
+            <li>More</li>
+          </ul>
+        </nav>
+      </div>
+      <div id="login">
+        <nav>
+          <ul>
+            <li><span class="material-symbols-outlined">add</span></li>
+            <li><button>EN</button></li>
+            <li>Login</li>
+            <li>Join TMBD</li>
+            <li><span class="material-symbols-outlined">search</span></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+
+  <!-- nav ends -->
+  <div class="container w-100" id="container1">
+    <div id="headersection">
+      <h1>Welcome</h1>
+      <h3>Millions Of Movies,TV Shows And People To Discover.Explore Now</h3>
+    </div>
+    <form class="input-group mb-3" action="Search.html" id="searchbar">
+      <!--action="Search.html"-->
+      <input type="text" class="form-control" id="search" placeholder="Search" aria-label="Recipient's username"
+        aria-describedby="basic-addon2" />
+      <button class="input-group-text" type="submit" id="basic-addon2" onclick="value()">
+        Search
+      </button>
+    </form>
+  </div>
+  <div class="container">
+    <article style="display: flex" id="article1">
+      <h3>Trending</h3>
+      <button id="button1" onclick="ButtonColour1()">Today</button>
+      <button id="button2" onclick="ButtonColour2()">This Week</button>
+    </article>
+
+    <div id="cards-container"></div>
+
+    <section style="box-sizing: border-box">
+      <article style="display: flex" id="article2">
+        <h3>Latest Trailers</h3>
+        <button id="latestTrailersBTN1" onclick="latestTrailer1()">
+          Streaming
+        </button>
+        <button id="latestTrailersBTN2" onclick="latestTrailer2()">
+          On TV
+        </button>
+        <button id="latestTrailersBTN3" onclick="latestTrailer3()">
+          For Rent
+        </button>
+        <button id="latestTrailersBTN4" onclick="latestTrailer4()">
+          In Theaters
+        </button>
+      </article>
+      <div id="trailerSection"></div>
+      <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        <div class="overlay-content" id="overlay-content"></div>
+      </div>
+
+      <div id="cards-container1"></div>
+    </section>
+  </div>
+  <div class="container">
+    <section>
+      <article style="display: flex" id="article3">
+        <h3>What's Popular</h3>
+        <button id="popularBTN1" onclick="popularBTN1()">Streaming</button>
+        <button id="popularBTN2" onclick="popularBTN2()">On TV</button>
+        <button id="popularBTN3" onclick="popularBTN3()">For Rent</button>
+        <button id="popularBTN4" onclick="popularBTN4()">In Theaters</button>
+      </article>
+
+      <div id="cards-container2"></div>
+    </section>
+
+    <section>
+      <article style="display: flex" id="article4">
+        <h3>Free To Watch</h3>
+        <button id="freeBTN1" onclick="freeBTN1()">Movies</button>
+        <button id="freeBTN2" onclick="freeBTN2()">TV</button>
+      </article>
+
+      <div id="cards-container3"></div>
+
+      <section id="MainLeader">
+        <article id="leaderboard">
+          <h3>LeaderBoard</h3>
+          <ul>
+            <li>All Time Edits</li>
+            <li>Edits This Week</li>
+          </ul>
+        </article>
+
+        <div>
+          <div style="display: flex">
+            <p class="userIMG">T</p>
+            <h5>Tamil</h5>
+          </div>
+          <article style="display: flex">
+            <p class="first"></p>
+            <p>899</p>
+          </article>
+          <article style="display: flex">
+            <p class="second" style="display: flex"></p>
+            <p>9,899</p>
+          </article>
+          <div style="display: flex">
+            <p class="userIMG">S</p>
+            <h5>Swanand</h5>
+          </div>
+          <article style="display: flex">
+            <p class="third"></p>
+            <p>9,899</p>
+          </article>
+          <article style="display: flex">
+            <p class="fourth" style="display: flex"></p>
+            <p>899</p>
+          </article>
+        </div>
+        <div id="leaderboard2">
+          <div style="display: flex">
+            <p class="userIMG">K</p>
+            <h5>Komal</h5>
+          </div>
+          <article style="display: flex">
+            <div class="fifth"></div>
+            <p>9,899</p>
+          </article>
+          <article style="display: flex">
+            <div class="sixth" style="display: flex"></div>
+            <p>899</p>
+          </article>
+          <div style="display: flex">
+            <p class="userIMG">U</p>
+            <h5>Umesh</h5>
+          </div>
+          <article style="display: flex">
+            <div class="seven"></div>
+            <p>9,899</p>
+          </article>
+          <article style="display: flex">
+            <div class="eight" style="display: flex"></div>
+            <p>899</p>
+          </article>
+        </div>
+      </section>
+    </section>
+  </div>
+  <footer class="container-fluid" id="footerMain">
+    <article id="footer1">
+      <figure>
+        <img src="images/img6.jpg" />
+      </figure>
+      <button id="footerBTN" type="button">Hi Swanand_2605!</button>
+    </article>
+    <article id="footer2">
+      <ul>
+        <h6>THE BASICS</h6>
+        <li>About TMDB</li>
+        <li>Contact Us</li>
+        <li>Support Forums</li>
+        <li>API</li>
+        <li>System Status</li>
+      </ul>
+    </article>
+    <article id="footer3">
+      <ul>
+        <h6>GET INVOLVED</h6>
+        <li>Contribution GEETA</li>
+        <li>Add New Movie</li>
+        <li>Add New TV Show</li>
+      </ul>
+    </article>
+    <article id="footer4">
+      <ul>
+        <h6>COMMUNITY</h6>
+        <li>Guidlines</li>
+        <li>Discussions</li>
+        <li>LeaderBoard</li>
+        <li>Twitter</li>
+      </ul>
+    </article>
+    <article id="footer5">
+      <ul>
+        <h6>LEGAL</h6>
+        <li>Terms Of Use</li>
+        <li>API Terms Of Use</li>
+        <li>Privacy Policy</li>
+      </ul>
+    </article>
+  </footer>
+
+  <!--   ///////////////////////Script Start Here////////////////////////////-->
+
+  <script src="TMDB.js"></script>
+
+  <!-- Google Icons -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+</body>
+
+</html>

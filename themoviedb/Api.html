@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #cards-container {
+            display: flex;
+            overflow-x: scroll;
+            width: 80vw;
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+
+        .card-img {
+            height: 12rem;
+            width: 10rem;
+        }
+
+        .card {
+            margin: 1rem;
+        }
+
+        /* The Overlay (background) */
+        .overlay {
+            /* Height & width depends on how you want to reveal the overlay (see JS below) */
+            height: 100%;
+            width: 0;
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            background-color: rgb(0, 0, 0);
+            /* Black fallback color */
+            background-color: rgba(0, 0, 0, 0.9);
+            /* Black w/opacity */
+            overflow-x: hidden;
+            /* Disable horizontal scroll */
+            transition: 0.5s;
+            /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+        }
+
+        /* Position the content inside the overlay */
+        .overlay-content {
+            position: relative;
+            top: 25%;
+            /* 25% from the top */
+            width: 100%;
+            /* 100% width */
+            text-align: center;
+            /* Centered text/links */
+            margin-top: 30px;
+            /* 30px top margin to avoid conflict with the close button on smaller screens */
+        }
+
+        /* The navigation links inside the overlay */
+        .overlay a {
+            padding: 8px;
+            text-decoration: none;
+            font-size: 36px;
+            color: #818181;
+            display: block;
+            /* Display block instead of inline */
+            transition: 0.3s;
+            /* Transition effects on hover (color) */
+        }
+
+        /* When you mouse over the navigation links, change their color */
+        .overlay a:hover,
+        .overlay a:focus {
+            color: #f1f1f1;
+        }
+
+        /* Position the close button (top right corner) */
+        .overlay .closebtn {
+            position: absolute;
+            top: 20px;
+            right: 45px;
+            font-size: 60px;
+        }
+
+        /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+        @media screen and (max-height: 450px) {
+            .overlay a {
+                font-size: 20px
+            }
+
+            .overlay .closebtn {
+                font-size: 40px;
+                top: 15px;
+                right: 35px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="myNav" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        <!-- Overlay content -->
+        <div class="overlay-content" id="overlay-content">
+
+        </div>
+
+    </div>
+    <div id="cards-container">
+    </div>
+
+    <script>
+        const options = {
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YTYwZjI2MjQ5M2ZiOTZlNjE1NWE5NjQzYWI3ZmRjNiIsInN1YiI6IjY0OWU5YjJlNWFiYTMyMDBmZmRiNmYxMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qR1YQw21ApKCJkiYOU18a-LeDYPUuvfn1yBKqN1Xwzg'
+            }
+        };
+        getMovies('https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1', options);
+        function getMovies(url, options) {
+            fetch(url, options)
+                .then(res => res.json())
+                .then(data => {
+                    //console.log(data.results);
+                    renderCharacters(data.results);
+
+                })
+        }
+        /*            */
+
+        const options1 = {
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YTYwZjI2MjQ5M2ZiOTZlNjE1NWE5NjQzYWI3ZmRjNiIsInN1YiI6IjY0OWU5YjJlNWFiYTMyMDBmZmRiNmYxMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qR1YQw21ApKCJkiYOU18a-LeDYPUuvfn1yBKqN1Xwzg'
+            }
+        };
+
+
+        /*              */
+
+
+        const cardsContainer = document.querySelector('#cards-container');
+        function renderCharacters(characters) {
+            characters.forEach(character => {
+                const { title, poster_path, release_date, id } = character;
+                var image1 = "https://image.tmdb.org/t/p/w500" + poster_path;
+                const div = document.createElement('div');
+                const image = document.createElement('img');
+                const name = document.createElement('h3');
+                const species = document.createElement('h3');
+                const like = document.createElement('button');
+                div.classList = 'card'
+                image.classList = 'card-img'
+                like.id = id;
+                image.src = image1;
+                name.innerText = `Name: ${title}`
+                species.innerText = `Species: ${release_date}`
+                like.textContent = 'Play'
+                div.appendChild(image)
+                div.appendChild(name)
+                div.appendChild(species)
+                div.appendChild(like)
+                cardsContainer.appendChild(div)
+                document.getElementById(id).addEventListener('click', () => {
+                    console.log(id);
+                    openNav(character)
+                })
+            });
+        };
+        /* Open when someone clicks on the span element */
+        const overLayContent = document.getElementById("overlay-content");
+        function openNav(movie) {
+            var id = movie.id;
+            fetch('https://api.themoviedb.org/3/movie/' + id + '/videos?language=en-US', options1)
+                .then(response => response.json())
+                .then(response => {
+                    console.log(response.results);
+                    if (response) {
+                        document.getElementById("myNav").style.width = "100%";
+                        if (response.results.length > 0) {
+                            var embed = [];
+                            response.results.forEach(video => {
+                                let { name, key, site } = video
+                                if (site == 'YouTube') {
+                                    embed.push(`
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" title="${name}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                `)
+                                }
+                            })
+                            overLayContent.innerHTML = embed.join('');
+                        } else {
+
+                        }
+                    }
+                })
+
+        }
+
+        /* Close when someone clicks on the "x" symbol inside the overlay */
+        function closeNav() {
+            document.getElementById("myNav").style.width = "0%";
+        }
+    </script>
+</body>
+
+</html>
