@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="CryptoConverter.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+
+    <form>
+        <h1 class="heading">CryptoCurrency Converter</h1>
+        <div class="amount">
+            <label for="amount">Quantity:</label>
+            <input type="number" placeholder="Enter Quantity of CryptoCurrency" id="amount" value="">
+        </div>
+
+
+        <div class="amount2">
+            <label for="currencies">Choose a CryptoCurrency:</label>
+            <select id="cryptocurrencies" name="cryptocurrencies">
+
+                <option value="Dogecoin" disabled>Crypto Currencies</option>
+
+                <option value="2172511">Bitcoin(BTC)</option>
+                <option value="148832">Etherum(ETH)</option>
+                <option value="82.74">USD Coin(USDC)</option>
+                <option value="25113">BNB(BNB)</option>
+                <option value="37.16">XRP(XRP)</option>
+                <option value="29.55">Cardano(ADA)</option>
+                <option value="5.82">Dogecoin(DOGE)</option>
+                <option value="72.15">Polygon(MATIC)</option>
+                <option value="1,603.73">Solana(SOL)</option>
+
+            </select>
+
+            <label for="currencies">Choose a Currency:</label>
+            <select id="flatcurrencies" name="flatcurrencies">
+                <option value="Dogecoin" disabled>Flat Currencies</option>
+
+                <option value="82.74">US Doller ($)</option>
+                <option value="0.8">Albanian Lek (L)</option>
+                <option value="0.6">Algerial Dinar (DZD)</option>
+                <option value="0.35">Argentine Peso (ARS)</option>
+                <option value="0.21">Armenian Dram (AMD)</option>
+                <option value="53.91">Australian Dollar (AUD)</option>
+                <option value="48.66">Azerbajjani Manat (AZN)</option>
+                <option value="219.48">Bahraini Dinar (BHD)</option>
+
+            </select>
+
+        </div>
+
+        <button type="button" onclick="Myfunction3()" id="button3">Convert</button>
+
+        <div id="result1">
+
+        </div>
+        <div id="result2">
+
+        </div>
+        <div id="result3">
+
+        </div>
+
+        <h2 class="result">
+            Converted Amount:
+            <span id="result4"></span>
+        </h2>
+
+    </form>
+
+    <script src="CryptoConverter.js"></script>
+
+</body>
+
+</html>
