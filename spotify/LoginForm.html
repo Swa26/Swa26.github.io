@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Add styles to the form container */
+        #error,
+        #error1,
+        #error2,
+        #error3 {
+            color: red;
+        }
+
+        .form-container {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 60vw;
+            padding: 1rem;
+            background-color: white;
+        }
+
+        .gender input[type=radio] {
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        /* Full-width input fields */
+        .form-container input[type=text],
+        .form-container input[type=password],
+        .form-container input[type=number],
+        .form-container select {
+            width: 100%;
+            padding: 1rem;
+            margin: 1rem 0 0.5rem 0;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        /* When the inputs get focus, do something */
+        .form-container input[type=text]:focus,
+        .form-container input[type=password]:focus,
+        .form-container input[type=number]:focus,
+        .form-container input[type=radio]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        /* Set a style for the submit/login button */
+        .form-container .btn {
+            display: block;
+            background-color: #04AA6D;
+            color: white;
+            padding: 1rem 1.5rem;
+            border: none;
+            cursor: pointer;
+            width: 10%;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            opacity: 0.8;
+        }
+
+        /* Add a red background color to the cancel button */
+        .form-container .cancel {
+            background-color: red;
+        }
+
+        /* Add some hover effects to buttons */
+        .form-container .btn:hover,
+        .open-button:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-popup" id="myForm">
+        <form class="form-container">
+            <h1>Login</h1>
+
+            <label for="email"><b>Email</b></label>
+            <input type="text" id="email" onkeyup="validation(event)" placeholder="Enter Email" name="email" required>
+            <p id="error"></p>
+
+            <label for="psw"><b>Create Password</b></label>
+            <input type="password" id="password" onkeyup="validation(event)" placeholder="Enter Password" name="psw"
+                required>
+            <p id="error1"></p>
+
+            <label for="profile"><b>What Should We Call You?</b></label>
+            <input type="text" id="profile" onkeyup="validation(event)" placeholder="Enter Password" name="profile"
+                required>
+            <p id="error2"></p>
+
+            <section class="dob" style="display: flex;">
+                <label for="year"><b>Year</b></label>
+                <input type="text" id="year" onkeyup="validation(event)" placeholder="YYYY" name="year" required>
+
+
+                <label for="month"><b>Month</b></label>
+                <select id="months" name="month">
+                    <option value="jan">Jan</option>
+                    <option value="feb">Feb</option>
+                    <option value="mar">Mar</option>
+                    <option value="apr">Apr</option>
+                    <option value="may">May</option>
+                    <option value="june">June</option>
+                    <option value="july">July</option>
+                    <option value="aug">Aug</option>
+                    <option value="sept">Sept</option>
+                    <option value="oct">Oct</option>
+                    <option value="nov">Nov</option>
+                    <option value="dec">Dec</option>
+                </select>
+
+                <label for="date" id="date"><b>Date</b></label>
+                <input type="number" placeholder="Date" name="date" required>
+            </section>
+            <p id="error3"></p>
+            <section class="gender">
+                <h4>Gender</h4>
+                <input type="radio" name="psw" required>
+                <label for="psw"><b>Male</b></label>
+
+                <input type="radio" name="psw" required>
+                <label for="psw"><b>Female</b></label>
+
+                <input type="radio" name="psw" required>
+                <label for="psw"><b>Not-Binary</b></label>
+
+                <input type="radio" name="psw" required>
+                <label for="psw"><b>Other</b></label>
+
+                <input type="radio" name="psw" required>
+                <label for="psw"><b>Prefer Not To Say</b></label>
+            </section>
+
+            <input type="checkbox" name="psw" required>
+            <label for="psw"><b>I Would Prefer Not to recieve marketing messages from SPOTIFY</b></label>
+
+            <h3 id="finalremark"></h3>
+
+            <button type="submit" class="btn">Login</button>
+            <button type="button" class="btn cancel" onclick="window.location.href='SpotifyNew.html';">Close</button>
+        </form>
+    </div>
+
+    <script src="Spotify.js"></script>
+</body>
+
+</html>

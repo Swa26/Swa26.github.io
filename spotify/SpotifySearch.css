@@ -1,0 +1,403 @@
+body {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-size: 62.5%;
+    
+}
+#englishbtn{
+    border: 1px solid white;
+    padding: 0.3rem;
+    
+}
+
+#card1{
+    padding-bottom: 0rem;
+    
+}
+.wrapper{
+    overflow: hidden;
+}
+.card-img-top{
+    position: relative;
+    top: 1.5rem;
+    left: 1rem;
+    transform: rotate(-20deg);
+    
+    
+}
+.btn1{
+    background-color: transparent;
+    border: none;
+}
+
+
+#policyLinks{
+    position: fixed;
+    top:25rem;
+    left: 0rem;
+    width: 20%;
+    margin: 1rem;
+    margin-top: 4rem;
+    
+}
+
+ul {
+    line-height: 3rem;
+    
+}
+
+.bi-spotify {
+    position: absolute;
+    left: 8.3rem;
+    top: 3.5rem;
+    color: #1DB954;
+
+
+}
+
+#spotifylogo {
+    height: 3rem;
+    width: 3rem;
+    margin-right: 0.5rem;
+}
+
+
+.dropdown-item:hover {
+    background-color: black;
+
+}
+
+.dropdownicons2:hover {
+    color: #1DB954;
+
+}
+
+.bi {
+    font-size: 1.5rem;
+}
+
+.icons4 , .icons3  , .icons5{
+    color: #1DB954;
+    margin-right: 0.5rem;
+}
+
+.icons4, .icons3 , .icons2 , .icons1 {
+    
+    margin-right: 0.5rem;
+}
+
+.btn {
+    border-radius: 5rem;
+
+}
+
+.btn:hover {
+    color: #1DB954;
+    background-color: black;
+}
+
+.card {
+    position: relative;
+    height: 12rem;
+    font-size: 0.7rem;
+}
+
+.bi-caret-left-fill {
+    color: #1DB954;
+}
+
+.bi-caret-right-fill {
+    color: #1DB954;
+}
+
+.card .bi.bi-play-circle-fill {
+    position: absolute;
+    top: 7rem;
+    right: 0.4rem;
+    color: #1DB954;
+
+}
+
+.bi.bi-play-circle-fill {
+    display: none;
+}
+
+.card:hover .bi.bi-play-circle-fill {
+    bottom: 0px;
+    opacity: 1;
+    display: block;
+
+
+}
+
+.card:hover {
+    box-shadow: 0px 0px 5px 5px gray;
+    font-size: 12px;
+    overflow:visible;
+    font-weight: bold;
+    transition-duration: 0.5s;
+
+}
+
+
+ #songtype1 , #songtype2 , #songtype3  {
+
+    color: #1DB954;
+}
+
+#footer1{
+    margin-left: 0rem;
+}
+
+#footer1 a {
+
+    padding: 0.8rem;
+    text-decoration: none;
+    color: white;
+}
+#navbarmain a{
+    padding: 0.8rem;
+    text-decoration: none;
+    color: white;
+}
+
+#policyLinks a{
+    padding: 0.2rem;
+    text-decoration: none;
+    color: white;
+}
+
+.icons {
+    color: white;
+    font-size: 3rem;
+}
+
+.icons:hover {
+    color: #1DB954;
+    transition-duration: 1s;
+    font-size: 2rem;
+}
+
+a:hover {
+    color: #1DB954 !important
+
+}
+
+.nav-link:hover {
+    color: #1DB954 !important;
+}
+
+#navbarmain {
+    position: fixed;
+    height: 100%;
+    width: 20%;
+}
+
+#gridmain {
+    position: absolute;
+    left: 19rem;
+    top: 3rem;
+    width: 80%;
+    background-color: black;
+
+}
+
+#navbarrow {
+    position: fixed;
+    width: 80%;
+    left: 19.7rem;
+    z-index: 1;
+    top: 0px;
+    padding: 0.2rem;
+}
+
+#hr {
+    color: white;
+
+}
+
+h5 {
+    color: #1DB954
+}
+
+#footer1 h3{
+    color: #1DB954;
+}
+#footer1 h5{
+    color: #1DB954;
+
+}
+
+
+
+
+@media (min-width:200px) and (max-width:600px) {
+    
+    ul {
+        line-height: 5rem;
+        
+    }
+    
+    .bi-spotify {
+        position: absolute;
+        left: 8.4rem;
+        top: 3.7rem;
+        color: #1DB954;
+    }
+    
+    #spotifylogo {
+        height: 3rem;
+        width: 3rem;
+        margin: 0.8rem;
+    
+    
+    }
+    
+    .dropdown-item:hover {
+        background-color: black;
+    
+    }
+    
+    .dropdownicons2:hover {
+        color: #1DB954;
+    
+    }
+    
+    .bi {
+        font-size: 1.5rem;
+    }
+    
+    .icons5 {
+        color: #1DB954;
+    }
+    
+    .icons4 {
+        color: #1DB954;
+    }
+    
+    .btn {
+        border-radius: 5rem;
+    }
+    
+    .btn:hover {
+        color: #1DB954;
+        background-color: black;
+    }
+    
+    .card {
+        position: relative;
+        height: 12rem;
+        font-size: 0.7rem;
+    }
+    
+    .bi-caret-left-fill {
+        display: none;
+    }
+    
+    .bi-caret-right-fill {
+        display: none;
+    }
+    
+    .card .bi.bi-play-circle-fill {
+        position: absolute;
+        top: 12rem;
+        right: 1rem;
+        transition-duration: all 0.5s ease;
+        color: #1DB954;
+    
+    }
+    
+    .bi.bi-play-circle-fill {
+        display: none;
+    }
+    
+    .card:hover .bi.bi-play-circle-fill {
+        bottom: 0px;
+        opacity: 1;
+        display: block;
+    }
+    
+    .card:hover {
+        box-shadow: 0px 0px 5px 5px gray;
+        font-size: 12px;
+        overflow: visible;
+        font-weight: bold;
+        transition-duration: 0.5s;
+    
+    }
+    
+   
+    
+    h1,
+    h3 {
+        color: #1DB954;
+    }
+    
+    a {
+        padding: 1rem;
+        text-decoration: none;
+        color: white;
+        
+    }
+    
+    .icons {
+        color: white;
+        font-size: 3rem;
+    }
+    
+    .icons:hover {
+        color: #1DB954;
+        transition-duration: 0.5s;
+        font-size: 4rem;
+    }
+    
+    a:hover {
+        color: #1DB954;
+    
+    }
+    
+    .nav-link:hover {
+        color: #1DB954;
+    }
+    
+    #navbarmain {
+        position: absolute;
+        height: 10%;
+        width: 100%;
+    
+    }
+    
+    #gridmain {
+        position: absolute;
+        padding: 1rem;
+        left: 0rem;
+        top: 5rem;
+        width: 100%;
+        overflow: scroll;
+    
+    }
+    
+    #navbarrow {
+        position: absolute;
+        width: 80%;
+        left: 0px;
+        z-index: 1;
+        top: 0px;
+        padding: 1rem;
+        display:none;
+    }
+    
+    hr {
+        color: white;
+    
+    }
+    
+    h5 {
+        color: #1DB954;
+    }
+    .col-6{
+        margin-bottom: 1rem;
+    }
+    
+
+}

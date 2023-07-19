@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="SpotifyNew.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar-flex-column navbar-expand-lg bg-dark" id="navbarmain">
+        <div class="container-fluid mt-3">
+            <a class="navbar-brand fs-3" href="#"><img id="spotifylogo" src="spotify-logo-png-7064.png">Spotify</a>
+            <button class="navbar-toggler text-white bg-black" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav flex-column me-auto mb-2 mb-lg-0 fs-5">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#"><i
+                                class="bi bi-house icons1 "></i>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="SpotifySearch.html"><i
+                                class="bi bi-search-heart icons2"></i>Search</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="bi bi-music-note-list icons3"></i>Your Library</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="bi bi-plus-square-fill icons4"></i>Create Playlist</a>
+                    </li>
+                    <li class="nav-item  mb-5">
+                        <a class="nav-link" href="#"><i class="bi bi-chat-left-heart-fill icons5"></i>
+                            Liked Songs
+                        </a>
+                    </li>
+                </ul>
+
+
+            </div>
+        </div>
+    </nav>
+    <ul id="policyLinks" class="navbar-nav flex-column mb-2 mb-lg-0 fs-6 bg-dark" style="margin-right:0px;">
+        <div class="d-flex">
+            <li class="nav-item me-4">
+                <a class="nav-link " aria-current="page" href="#">Legal</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Privacy Center</a>
+            </li>
+        </div>
+
+        <div class="d-flex">
+
+            <li class="nav-item me-4">
+                <a class="nav-link" href="#">Privacy Policy</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"></i>Cookies</a>
+            </li>
+        </div>
+        <li class="nav-item">
+            <a class="nav-link" href="#"></i>AboutUs</a>
+        </li>
+        <button type="button" id="englishbtn" class="btn btn-dark mt-4 me-5"><i
+                class="bi bi-globe m-1"></i>English</button>
+    </ul>
+
+    <div class="container-fluid bg-black" id="gridmain">
+        <!--Row 0th-->
+        <div class="row bg-dark " id="navbarrow">
+            <div class="col-md-1 mt-1  ">
+                <button type="button" class="btn1"><i class="bi bi-caret-left-fill"></i></button>
+            </div>
+            <div class="col-md-1 mt-1">
+                <button type="button" class="btn1"><i class="bi bi-caret-right-fill"></i></button>
+            </div>
+            <div class="col-md-2 offset-8">
+                <button class="btn float-end btn-dark m-1" onclick="window.location.href='LoginForm.html';"
+                    type="button" id="login">
+                    Log In
+                </button>
+                <button class="btn float-end btn-dark m-1" type="button">
+                    Sign Up
+                </button>
+            </div>
+        </div>
+        <!--1st row -->
+        <div class="row mt-3" id="songtype1">
+            <h1>Romantic</h1>
+            <div class="col-md-2 col-6 ">
+                <div class="card" style="width: 10rem;">
+                    <div>
+                        <img src="maxresdefault.jpg" class="card-img-top" style="height:90px;">
+                        <i class="bi bi-spotify"></i>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fs-6">Meri Ashiqui
+                        </h5>
+                        <p class="card-text">
+                            Meri Ashiqui is a Hindi language song and is sung by Arijit Singh and Sachin-Jigar.
+                        </p>
+
+                        <button type="button" class="btn1"><i class=" bi bi-play-circle-fill"></i></button>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-2 col-6 ">
+                <div class="card" style="width: 10rem;">
+                    <div>
+                        <img src="anmol ratan.jpg" class="card-img-top" style="height:90px;">
+                        <i class="bi bi-spotify"></i>
+
+                    </div>
+
+                    <div class="card-body">
+                        <h5 class="card-title fs-6">Anmol Ratan
+                        </h5>
+                        <p class="card-text">
+                            Anmol Ratan is a Hindi language song and is sung by Arijit Singh and Sachin-Jigar.
+                        </p>
+
+                        <button type="button" class="btn1"><i class=" bi bi-play-circle-fill"></i></button>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-2 col-6 ">
+                <div class="card" style="width: 10rem;">
+                    <div>
+                        <img src="Shah-Rukh-Khan-and-Deepika-Padukone-release-Jhoome-Jo-Pathaan-song-poster_2022-12-22-10-32-3_thumbnail.jpg"
+                            class="card-img-top" style="height:90px;">
+                        <i class="bi bi-spotify"></i>
+
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fs-6">Jhoome To Pathan
+                        </h5>
+                        <p class="card-text">
+                            Jhoome To Pathan is a Hindi language song is sung by Arijit Singh
+                        </p>
+
+                        <button type="button" class="btn1"><i class=" bi bi-play-circle-fill"></i></button>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-2 col-6 ">
+                <div class="card" style="width: 10rem;">
+                    <div>
+                        <img src="Dil mang raha hai.jpg" class="card-img-top" style="height:90px;">
+                        <i class="bi bi-spotify"></i>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fs-6">Dill Mang Raha
+                        </h5>
+                        <p class="card-text">
+                            Dill Mang Raha is a Hindi language song and is sung by Arijit Singh and Sachin-Jigar.
+                        </p>
+
+                        <button type="button" class="btn1"><i class=" bi bi-play-circle-fill"></i></button>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-2 col-6 ">
+                <div class="card" style="width: 10rem;">
+                    <div>
+                        <img src="kabil.jpg" class="card-img-top" style="height:105px;">
+                        <i class="bi bi-spotify"></i>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fs-6">Kabil
+                        </h5>
+                        <p class="card-text">
+                            Kabil is a Hindi language song and is sung by Arijit Singh and Sachin-Jigar.
+                        </p>
+
+                        <button type="button" class="btn1"><i class=" bi bi-play-circle-fill"></i></button>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-2 col-6 ">
+                <div class="card" style="width: 10rem;">
+                    <div>
+                        <img src="Maan-Meri-Jaan-Lyrics-In-English-Translation.jpg" class="card-img-top"
+                            style="height:90px;">
+                        <i class="bi bi-spotify"></i>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fs-6">Maan Meri Jaan
+                        </h5>
+                        <p class="card-text">
+                            Maan Meri Jaan is a Hindi language song and is sung by Arijit Singh and Sachin-Jigar.
+                        </p>
+
+                        <button type="button" class="btn1"><i class=" bi bi-play-circle-fill"></i></button>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--2nd row -->
+        <div class="row mt-4 " id="songtype2">
+
+            <h1>Party One</h1>
+            <div class="col-md-2 col-6">
+                <div class="card" style="width: 10rem;">
+                    <div>
+                        <img src="thumkeshwari-bhediya.jpg" class="card-img-top" style="height:90px;">
+                        <i class="bi bi-spotify"></i>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fs-6">Thumkeshwari
+                        </h5>
+                        <p class="card-text">
+                            Thumkeshwari is a Hindi language song and is sung by Arijit Singh and Sachin-Jigar.
+                        </p>
+
+                        <button type="button" class="btn1"><i class=" bi bi-play-circle-fill"></i></button>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-2 col-6 ">
+                <div class="card" style="width: 10rem;">
+                    <div>
+                        <img src="tu aake dekh le.jpg" class="card-img-top" style="height:90px;">
+                        <i class="bi bi-spotify"></i>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fs-6">Tu aake dekh le
+                        </h5>
+                        <p class="card-text">
+                            Tu aake dekh le is a Hindi language song and is sung by Arijit Singh and Sachin-Jigar.
+                        </p>
+
+                        <button type="button" class="btn1"><i class=" bi bi-play-circle-fill"></i></button>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-2 col-6 ">
+                <div class="card" style="width: 10rem;">
+                    <div>
+                        <img src="mai khiladi.jpg" class="card-img-top" style="height:90px;">
+                        <i class="bi bi-spotify"></i>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fs-6">Main Khiladi
+                        </h5>
+                        <p class="card-text">
+                            Main Khiladi is a Hindi language song and is sung by Arijit Singh and Sachin-Jigar.
+                        </p>
+
+                        <button type="button" class="btn1"><i class=" bi bi-play-circle-fill"></i></button>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-2 col-6 ">
+                <div class="card" style="width: 10rem;">
+                    <div>
+                        <img src="kacchi duriya.jpg" class="card-img-top" style="height:90px;">
+                        <i class="bi bi-spotify"></i>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fs-6">Maja Ma
+                        </h5>
+                        <p class="card-text">
+                            Maja Ma is a Hindi language song and is sung by Arijit Singh and Sachin-Jigar.
+                        </p>
+
+                        <button type="button" class="btn1"><i class=" bi bi-play-circle-fill"></i></button>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-2 col-6">
+                <div class="card" style="width: 10rem;">
+                    <div>
+                        <img src="bazigar.jpg" class="card-img-top" style="height:90px;">
+                        <i class="bi bi-spotify"></i>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fs-6">Divine
+                        </h5>
+                        <p class="card-text">
+                            Divine is a Hindi language song and is sung by Arijit Singh and Sachin-Jigar.
+                        </p>
+
+                        <button type="button" class="btn1"><i class=" bi bi-play-circle-fill"></i></button>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-2 col-6 ">
+                <div class="card" style="width: 10rem;">
+                    <div>
+                        <img src="bijli.jpg" class="card-img-top" style="height:105px;">
+                        <i class="bi bi-spotify"></i>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fs-6">Bijli
+                        </h5>
+                        <p class="card-text">
+                            Bijli is a Hindi language song and is sung by Arijit Singh and Sachin-Jigar.
+                        </p>
+
+                        <button type="button" class="btn1"><i class=" bi bi-play-circle-fill"></i></button>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--3rd row -->
+        <div class="row mt-4" id="songtype3">
+            <div class="row mt-4" id="songtype3">
+                <h1>Sleep</h1>
+                <div class="col-md-4 col-6">
+                    <div class="card" style="width: 10rem;">
+                        <div>
+                            <img src="baby sleep.jpg" class="card-img-top" style="height:90px;">
+                            <i class="bi bi-spotify"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fs-6">Deep Sleep
+                            </h5>
+                            <p class="card-text">
+                                Deep Sleep is a Hindi language song and is sung by Arijit Singh and Sachin-Jigar.
+                            </p>
+
+                            <button type="button" class="btn1"><i class=" bi bi-play-circle-fill"></i></button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-6">
+                    <div class="card" style="width: 10rem;">
+                        <div>
+                            <img src="bedtime.jpg" class="card-img-top" style="height:90px;">
+                            <i class="bi bi-spotify"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fs-6">8 Hours
+                            </h5>
+                            <p class="card-text">
+                                8 Hours is a Hindi language song and is sung by Arijit Singh and Sachin-Jigar.
+                            </p>
+
+                            <button type="button" class="btn1"><i class=" bi bi-play-circle-fill"></i></button>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--4th row -->
+            <div class="row mt-4 mb-5" id="sogntype4" style="color: #1DB954;">
+                <h1>Sound Of English</h1>
+                <div class="col-md-2 col-6">
+                    <div class="card" style="width: 10rem;">
+                        <div>
+                            <img src="infinity.jpg" class="card-img-top" style="height:90px;">
+                            <i class="bi bi-spotify"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fs-6">Infinity
+                            </h5>
+                            <p class="card-text">
+                                Infinity is a Hindi language song and is sung by Arijit Singh and Sachin-Jigar.
+                            </p>
+
+                            <button type="button" class="btn1"><i class=" bi bi-play-circle-fill"></i></button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-2 col-6 ">
+                    <div class="card" style="width: 10rem;">
+                        <div>
+                            <img src="children in need.jpg" class="card-img-top" style="height:90px;">
+                            <i class="bi bi-spotify"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fs-6">Children in need
+                            </h5>
+                            <p class="card-text">
+                                Children in need is a Hindi language song and is sung by Arijit Singh and Sachin-Jigar.
+                            </p>
+
+                            <button type="button" class="btn1"><i class=" bi bi-play-circle-fill"></i></button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-2 col-6 ">
+                    <div class="card" style="width: 10rem;">
+                        <div>
+                            <img src="dirty little secret.jpg" class="card-img-top" style="height:90px;">
+                            <i class="bi bi-spotify"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fs-6">Dirty Little Secret
+                            </h5>
+                            <p class="card-text">
+                                Dirty Little Secret is a Hindi language song and is sung by Arijit Singh and
+                                Sachin-Jigar.
+                            </p>
+
+                            <button type="button" class="btn1"><i class=" bi bi-play-circle-fill"></i></button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-2 col-6">
+                    <div class="card" style="width: 10rem;">
+                        <div>
+                            <img src="hope.jpg" class="card-img-top" style="height:105px;">
+                            <i class="bi bi-spotify"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fs-6">Hope
+                            </h5>
+                            <p class="card-text">
+                                Hope is a Hindi language song and is sung by Arijit Singh and Sachin-Jigar.
+                            </p>
+
+                            <button type="button" class="btn1"><i class=" bi bi-play-circle-fill"></i></button>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-2 col-6 ">
+                    <div class="card" style="width: 10rem;">
+                        <div>
+                            <img src="boat.jpg" class="card-img-top" style="height:90px;">
+                            <i class="bi bi-spotify"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fs-6">Beliver
+                            </h5>
+                            <p class="card-text">
+                                Beliver is a Hindi language song and is sung by Arijit Singh and Sachin-Jigar.
+                            </p>
+
+                            <button type="button" class="btn1"><i class=" bi bi-play-circle-fill"></i></button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-2 col-6">
+                    <div class="card" style="width: 10rem;">
+                        <div>
+                            <img src="woke up.jpg" class="card-img-top" style="height:90px;">
+                            <i class="bi bi-spotify"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fs-6">Love You
+                            </h5>
+                            <p class="card-text">
+                                Love You is a Hindi language song and is sung by Arijit Singh and Sachin-Jigar.
+                            </p>
+
+                            <button type="button" class="btn1"><i class=" bi bi-play-circle-fill"></i></button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <footer class="row mt-4 bg-black" id="footer1">
+                <div class="col-md-3 col-6 d-flex flex-column">
+                    <h3>Company</h3>
+                    <a href="#">About</a>
+                    <a href="#">Jobs</a>
+                    <a href="#">For The Record</a>
+                </div>
+
+                <div class="col-md-3 col-6 d-flex flex-column">
+                    <h3>Communities</h3>
+                    <a href="#">For Artist</a>
+                    <a href="#">Developers</a>
+                    <a href="#">Advertising</a>
+                    <a href="#">Investors</a>
+                    <a href="#">Vendors</a>
+                    <a href="#">Spotify for work</a>
+
+                </div>
+
+                <div class="col-md-3 col-6 d-flex flex-column">
+                    <h3>Usefull Links</h3>
+                    <a href="#">Support</a>
+                    <a href="#">Mobile app</a>
+
+
+                </div>
+
+                <div class="col-md-3 col-12 d-flex justify-content-end" id="socialicons">
+
+                    <a href="#"><i class="bi bi-facebook icons"></i></a>
+                    <a href="#"><i class="bi bi-linkedin icons"></i></a>
+                    <a href="#"><i class="bi bi-skype icons"></i></a>
+                    <a href="#"><i class="bi bi-youtube icons "></i></a>
+
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12 col-12 text-center">
+                        <h5>&#169 2023 Spotify Swanand Joshi</h5>
+                    </div>
+                </div>
+
+            </footer>
+        </div>
+
+
+
+
+
+</body>
+
+</html>
