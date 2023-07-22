@@ -35,62 +35,6 @@ window.onload = function () {
     "https://api.themoviedb.org/3/trending/movie/day?language=en-US",
     options
   );
-  function getMovies(url, options) {
-    fetch(url, options)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data.results);
-        renderCharacters(data.results);
-      });
-  }
-};
-
-function ButtonColour1() {
-  var btn = (document.getElementById("card1").innerHTML = " ");
-
-  var button1 = (document.getElementById("button1").style.backgroundColor =
-    "#032541");
-  var button2 = (document.getElementById("button2").style.backgroundColor =
-    "white");
-  var button1 = (document.getElementById("button1").style.color = "white");
-  var button2 = (document.getElementById("button2").style.color = "#032541");
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YTYwZjI2MjQ5M2ZiOTZlNjE1NWE5NjQzYWI3ZmRjNiIsInN1YiI6IjY0OWU5YjJlNWFiYTMyMDBmZmRiNmYxMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qR1YQw21ApKCJkiYOU18a-LeDYPUuvfn1yBKqN1Xwzg",
-    },
-  };
-  getMovies(
-    "https://api.themoviedb.org/3/trending/movie/day?language=en-US",
-    options
-  );
-  function getMovies(url, options) {
-    fetch(url, options)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data.results);
-        renderCharacters(data.results);
-      });
-  }
-}
-function ButtonColour2() {
-  var btn = (document.getElementById("card1").innerHTML = " ");
-  var button1 = (document.getElementById("button1").style.backgroundColor =
-    "white");
-  var button2 = (document.getElementById("button2").style.backgroundColor =
-    "#032541");
-  var button1 = (document.getElementById("button1").style.color = "#032541");
-  var button2 = (document.getElementById("button2").style.color = "white");
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YTYwZjI2MjQ5M2ZiOTZlNjE1NWE5NjQzYWI3ZmRjNiIsInN1YiI6IjY0OWU5YjJlNWFiYTMyMDBmZmRiNmYxMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qR1YQw21ApKCJkiYOU18a-LeDYPUuvfn1yBKqN1Xwzg",
-    },
-  };
   getMovies(
     "https://api.themoviedb.org/3/trending/movie/week?language=en-US",
     options
@@ -103,9 +47,45 @@ function ButtonColour2() {
         renderCharacters(data.results);
       });
   }
+};
+
+function ButtonColour1() {
+  //var btn = (document.getElementById("card1").innerHTML = " ");
+  const cardsContainer = document.querySelector("#card1");
+  cardsContainer.innerHTML=" ";  
+  getMovies(
+    "https://api.themoviedb.org/3/trending/movie/day?language=en-US",
+    options
+  );
+  var button1 = (document.getElementById("button1").style.backgroundColor =
+    "#032541");
+  var button2 = (document.getElementById("button2").style.backgroundColor =
+    "white");
+  var button1 = (document.getElementById("button1").style.color = "white");
+  var button2 = (document.getElementById("button2").style.color = "#032541");
+  
+}
+function ButtonColour2() {
+  var btn = (document.getElementById("card1").innerHTML = " ");
+  getMovies(
+    "https://api.themoviedb.org/3/trending/movie/week?language=en-US",
+    options
+  );
+  var button1 = (document.getElementById("button1").style.backgroundColor =
+    "white");
+  var button2 = (document.getElementById("button2").style.backgroundColor =
+    "#032541");
+  var button1 = (document.getElementById("button1").style.color = "#032541");
+  var button2 = (document.getElementById("button2").style.color = "white");
+  
 }
 function latestTrailer1() {
-  //var btn1=document.getElementById('card1').innerHTML=" ";
+  const cardsContainer1 = document.querySelector("#cards-container1");
+  cardsContainer1.innerHTML=" ";  
+  getMovies(
+    "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1",
+    options
+  );
   var button1 = (document.getElementById(
     "latestTrailersBTN1"
   ).style.backgroundColor = "#a9f8c9");
@@ -128,7 +108,12 @@ function latestTrailer1() {
     "white");
 }
 function latestTrailer2() {
-  //var btn1=document.getElementById('card1').innerHTML=" ";
+  const cardsContainer1 = document.querySelector("#cards-container1");
+  cardsContainer1.innerHTML=" ";
+  getMovies(
+    "https://api.themoviedb.org/3/trending/tv/day",
+    options
+  );
   var button2 = (document.getElementById(
     "latestTrailersBTN2"
   ).style.backgroundColor = "#a9f8c9");
@@ -152,7 +137,13 @@ function latestTrailer2() {
 }
 
 function latestTrailer3() {
-  //var btn1=document.getElementById('card1').innerHTML=" ";
+  //
+  const cardsContainer1 = document.querySelector("#cards-container1");
+  cardsContainer1.innerHTML=" ";
+  getMovies(
+    "https://api.themoviedb.org/3/tv/airing_today",
+    options
+  );
   var button3 = (document.getElementById(
     "latestTrailersBTN3"
   ).style.backgroundColor = "#a9f8c9");
@@ -175,7 +166,12 @@ function latestTrailer3() {
     "white");
 }
 function latestTrailer4() {
-  //var btn1=document.getElementById('card1').innerHTML=" ";
+  const cardsContainer1 = document.querySelector("#cards-container1");
+  cardsContainer1.innerHTML=" ";
+  getMovies(
+    "https://api.themoviedb.org/3/movie/now_playing",
+    options
+  );
   var button4 = (document.getElementById(
     "latestTrailersBTN4"
   ).style.backgroundColor = "#a9f8c9");
@@ -200,6 +196,12 @@ function latestTrailer4() {
 
 function popularBTN1() {
   //var btn1=document.getElementById('card1').innerHTML=" ";
+  const cardsContainer2 = document.querySelector("#cards-container2");
+  cardsContainer2.innerHTML=" ";  
+  getMovies2(
+    "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1",
+    options2
+  );
   var button1 = (document.getElementById("popularBTN1").style.backgroundColor =
     "#032541");
   var button1 = (document.getElementById("popularBTN1").style.color = "white");
@@ -215,6 +217,12 @@ function popularBTN1() {
 }
 function popularBTN2() {
   //var btn1=document.getElementById('card1').innerHTML=" ";
+  const cardsContainer2 = document.querySelector("#cards-container2");
+  cardsContainer2.innerHTML=" ";
+  getMovies2(
+    "https://api.themoviedb.org/3/trending/tv/day",
+    options2
+  );
   var button2 = (document.getElementById("popularBTN2").style.backgroundColor =
     "#032541");
   var button2 = (document.getElementById("popularBTN2").style.color = "white");
@@ -231,6 +239,12 @@ function popularBTN2() {
 
 function popularBTN3() {
   //var btn1=document.getElementById('card1').innerHTML=" ";
+  const cardsContainer2 = document.querySelector("#cards-container2");
+  cardsContainer2.innerHTML=" ";
+  getMovies2(
+    "https://api.themoviedb.org/3/tv/airing_today",
+    options2
+  );
   var button3 = (document.getElementById("popularBTN3").style.backgroundColor =
     "#032541");
   var button3 = (document.getElementById("popularBTN3").style.color = "white");
@@ -246,6 +260,12 @@ function popularBTN3() {
 }
 function popularBTN4() {
   //var btn1=document.getElementById('card1').innerHTML=" ";
+  const cardsContainer2 = document.querySelector("#cards-container2");
+  cardsContainer2.innerHTML=" ";
+  getMovies2(
+    "https://api.themoviedb.org/3/movie/now_playing",
+    options2
+  );
   var button4 = (document.getElementById("popularBTN4").style.backgroundColor =
     "#032541");
   var button4 = (document.getElementById("popularBTN4").style.color = "white");
@@ -261,6 +281,12 @@ function popularBTN4() {
 }
 
 function freeBTN1() {
+  const cardsContaine3 = document.querySelector("#cards-container3");
+  cardsContaine3.innerHTML=" ";
+  getMovies3(
+    "https://api.themoviedb.org/3/movie/top_rated",
+    options3
+  );
   var button1 = (document.getElementById("freeBTN1").style.backgroundColor =
     "#032541");
   var button1 = (document.getElementById("freeBTN1").style.color = "white");
@@ -269,6 +295,12 @@ function freeBTN1() {
   var button2 = (document.getElementById("freeBTN2").style.color = "#032541");
 }
 function freeBTN2() {
+  const cardsContaine3 = document.querySelector("#cards-container3");
+  cardsContaine3.innerHTML=" ";
+  getMovies3(
+    "https://api.themoviedb.org/3/trending/tv/day",
+    options3
+  );
   var button1 = (document.getElementById("freeBTN1").style.backgroundColor =
     "white");
   var button1 = (document.getElementById("freeBTN1").style.color = "#032541");
@@ -345,10 +377,7 @@ const options = {
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YTYwZjI2MjQ5M2ZiOTZlNjE1NWE5NjQzYWI3ZmRjNiIsInN1YiI6IjY0OWU5YjJlNWFiYTMyMDBmZmRiNmYxMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qR1YQw21ApKCJkiYOU18a-LeDYPUuvfn1yBKqN1Xwzg",
   },
 };
-getMovies(
-  "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1",
-  options
-);
+
 function getMovies(url, options) {
   fetch(url, options)
     .then((res) => res.json())
@@ -451,10 +480,7 @@ const options2 = {
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YTYwZjI2MjQ5M2ZiOTZlNjE1NWE5NjQzYWI3ZmRjNiIsInN1YiI6IjY0OWU5YjJlNWFiYTMyMDBmZmRiNmYxMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qR1YQw21ApKCJkiYOU18a-LeDYPUuvfn1yBKqN1Xwzg",
   },
 };
-getMovies2(
-  "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
-  options2
-);
+
 function getMovies2(url, options) {
   fetch(url, options)
     .then((res) => res.json())
@@ -528,10 +554,7 @@ const options3 = {
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YTYwZjI2MjQ5M2ZiOTZlNjE1NWE5NjQzYWI3ZmRjNiIsInN1YiI6IjY0OWU5YjJlNWFiYTMyMDBmZmRiNmYxMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qR1YQw21ApKCJkiYOU18a-LeDYPUuvfn1yBKqN1Xwzg",
   },
 };
-getMovies3(
-  "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
-  options3
-);
+
 function getMovies3(url, options) {
   fetch(url, options)
     .then((res) => res.json())
