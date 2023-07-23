@@ -76,12 +76,11 @@ header #logo {
   color: #032541;
   cursor: pointer;
 }
-#main_container{
-  display: flex;
-}
+
+
 #cards-container2 {
-  width: 81%;
-  
+  width: 82%;
+  float: right;
 }
 
 #card3 {
@@ -102,7 +101,8 @@ header #logo {
   border-radius: 1rem;
 }
 #sidebar {
-  width: 19%;
+  float: left;
+  width: 18%;
   margin-top: 1rem;
   border: 1px solid #032541;
   text-align: start;
@@ -150,3 +150,4 @@ header #logo {
   border-radius: 10px;
   margin-right: 1rem;
 }
+
